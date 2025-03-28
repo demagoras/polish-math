@@ -32,7 +32,7 @@ def choose_difficulty() -> int:
             max_num = int(input(f"Enter a number between {min(num_to_polish)} and {max(num_to_polish)}: ").strip())
             # Check if the number is within the valid range of num_to_polish
             if max_num < min(num_to_polish) or max_num > max(num_to_polish):
-                print("Number must be between 1 and 100.")
+                print(f"You must enter a number between {min(num_to_polish)} and {max(num_to_polish)}.")
                 continue
             return max_num
         except ValueError:
@@ -57,7 +57,7 @@ def generate_problem(max_num: int) -> tuple[int, int, str, int, str, str, str]:
             return num1, num2, operator, result, num1_polish, num2_polish, result_polish
 
 # Function to start the quiz
-def start_quiz() -> None:
+def main() -> None:
     max_num: int = choose_difficulty()
     while True:
         # Generate a random math problem
@@ -76,4 +76,5 @@ def start_quiz() -> None:
             print(f"Poprawna odpowiedź to: {result_polish} ({num1} {operator} {num2} = {result})")
             print("***************\n")
 
-start_quiz()
+if __name__ == "__main__":
+    main()
